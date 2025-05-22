@@ -7,8 +7,8 @@ int main(){
     const int w = image0.cols; // 横
     const int h = image0.rows; // 縦
     const int nc = image0.channels();
-    const int XR = 32;
-    const int YR = 32; 
+    const int XR = 2;
+    const int YR = 2; 
 
 
     /*************** Encoder ***************/
@@ -29,7 +29,7 @@ int main(){
     cv::resize(ycrcb[1], ycrcb[1], cv::Size(), XR, YR, cv::INTER_LINEAR);
     cv::resize(ycrcb[2], ycrcb[2], cv::Size(), XR, YR, cv::INTER_LINEAR);
     cv::merge(ycrcb, image0);
-    
+
 
     // 色空間返還: YCbCr -> RGB
     cv::cvtColor(image0, image0, cv::COLOR_YCrCb2BGR);
