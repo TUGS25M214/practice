@@ -8,8 +8,8 @@ void quantize(cv::Mat &input){
     float *p = reinterpret_cast<float *>(input.data);
     for (int i = 0; i < BSIZ; i++){
         for (int j = 0; j < BSIZ; j++){
-            p[i * BSIZ + j] /= 16;
-            p[i * BSIZ + j] /= roundf(p[i * BSIZ + j]);
+            p[i * BSIZ + j] /= 128;
+            p[i * BSIZ + j] = roundf(p[i * BSIZ + j]);
         }
     }
 }
@@ -18,7 +18,7 @@ void dequantize(cv::Mat &input){
     float *p = reinterpret_cast<float *>(input.data);
     for (int i = 0; i < BSIZ; i++){
         for (int j = 0; j < BSIZ; j++){
-            p[i * BSIZ + j] *= 32;
+            p[i * BSIZ + j] *= 128;
         }
     }
 }
